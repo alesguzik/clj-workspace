@@ -1,4 +1,5 @@
-{:vk {:id "3885655"
+{:vk {:app-id 4328936
+      :id 3885655
       :token "token-goes-here"}
  :socio2 {:cookie "socio2-cookie-goes-here"
           }}

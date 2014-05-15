@@ -4,7 +4,7 @@
    [clojurewerkz.neocons.rest.nodes :as nn]
    ))
 
-(defvktype user
+(defnodetype user
   sex
   bdate
   city
@@ -40,7 +40,7 @@
   screen_name
   timezone)
 
-(defvktype group
+(defnodetype group
   city
   country
   place
@@ -61,7 +61,7 @@
   site
   )
 
-(defvktype photo
+(defnodetype photo
   id
   album_id
   owner_id
@@ -82,7 +82,7 @@
   tags
   can_comment)
 
-(defvktype audio
+(defnodetype audio
   id
   owner_id
   artist
@@ -93,11 +93,11 @@
   album_id
   genre_id)
 
-(defvktype lyrics
+(defnodetype lyrics
   lyrics_id
   text)
 
-(defvktype video
+(defnodetype video
   id
   owner_id
   title
@@ -119,7 +119,7 @@
   likes ;; user_likes count
   repeat)
 
-(defvktype doc
+(defnodetype doc
   id
   owner_id
   title
@@ -129,7 +129,7 @@
   photo_100
   photo_130)
 
-(defvktype wall
+(defnodetype wall
   id
 owner_id
 from_id
