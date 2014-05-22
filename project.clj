@@ -45,6 +45,7 @@
                  [incanter "1.5.5"]
                  [org.clojure/core.match "0.2.1"]
                  [org.clojure/core.logic "0.8.7"]
+                 [org.clojure/math.combinatorics "0.0.7"]
                  [net.mikera/core.matrix "0.23.0"]
                  [fogus/bacwn "0.4.0"] ; datalog implementation
                  [org.encog/encog-core "3.2.0"]
