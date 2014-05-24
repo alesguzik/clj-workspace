@@ -1,6 +1,7 @@
 (ns workspace.vk.persistence.neo4j
   (:require
    [clojure.math.combinatorics :as combo]
+   [clojure.data.csv :as csv]
    [clojurewerkz.neocons.rest :as neo]
    [clojurewerkz.neocons.rest
     [nodes :as node]
@@ -120,4 +121,14 @@
            (rel/create conn (:node tim1) (:node tim2) (relationship tim1 tim2))))
   (cypher/tquery conn "match (e:Tim) return e.name, e.canonical_name"))
 
-(relationship (:don types-map) (:duma types-map))
+(read-string "42")
+
+(def soc1-data
+  (->> "data/social_mbti.csv"
+       slurp
+       csv/read-csv
+       rest
+       (take 10)
+       (map #(->> %
+                  (map read-string)
+                  (zipmap [:vk_id :soc1_tim])))))
