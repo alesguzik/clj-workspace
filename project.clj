@@ -5,6 +5,7 @@
 ;  :resource-paths ["resources/*"]
   :plugins [[cider/cider-nrepl "0.7.0-SNAPSHOT"]]
   :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.jruby/jruby-complete "1.7.12"]
 
                  ; get
                  ;
