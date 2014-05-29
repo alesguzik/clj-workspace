@@ -1,13 +1,46 @@
+#_(comment "
+")
 (ns workspace.jruby
-  (:import javax.script.ScriptEngineManager))
+  (:import javax.script.ScriptEngineManager
+           javax.script.ScriptEngine
+           java.io.StringWriter))
 
-(let [engine (.getEngineByName (ScriptEngineManager.) "jruby")]
-  (defn reval [str]
+(def manager (ScriptEngineManager.))
+(def engine (.getEngineByName manager "jruby"))
+(def context (.getContext engine))
+
+(defn reval [str & [binding]]
+  (if binding
+    (.eval engine str binding)
     (.eval engine str)))
 
-(reval "'Hello World'")
+(.getMethods (.getClass engine))
 
-(reval "
+(defn gem [& args]
+  (let [binding (.createBindings engine)
+        writer (StringWriter.)]
+    (.put binding "args" args)
+    (.put binding "writer" writer)
+    (.eval engine "
 require 'rubygems'
-Gem.methods
+require 'rubygems/gem_runner'
+require 'rubygems/exceptions'
+require 'stringio'
+out = StringIO.new
+$stdout=out
+$stderr=out
+begin
+  Gem::GemRunner.new.run $args.to_a
+rescue Gem::SystemExitException => e
+  puts e.exit_code
+end
+out.rewind
+$writer.write out.read
+" binding)
+    (.flush writer)
+    (.toString writer)))
+
+(gem "install" "rails")
+
+#_(comment "
 ")
