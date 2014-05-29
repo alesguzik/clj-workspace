@@ -2,8 +2,10 @@
   :description "My clojure workspace"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-;  :resource-paths ["resources/*"]
-  :plugins [[cider/cider-nrepl "0.7.0-SNAPSHOT"]]
+  :plugins [[cider/cider-nrepl "0.7.0-SNAPSHOT"]
+            [lein-localrepo "0.5.3"]]
+  :repositories {"apache-releases"
+                 "http://repository.apache.org/content/repositories/releases/"}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.jruby/jruby-complete "1.7.12"]
 
@@ -52,6 +54,9 @@
                  [org.encog/encog-core "3.2.0"]
                  [enclog "0.6.5"] ; machine-learning, neural networks
                  [clojure-opennlp "0.3.2"]
+                 [neuroph-core/neuroph-core "2.8"]
+                 [neuroph-imgrec/neuroph-imgrec "2.8"]
+                 [neuroph-ocr/neuroph-ocr "2.8"]
 
                  ; data transformation
                  ;
