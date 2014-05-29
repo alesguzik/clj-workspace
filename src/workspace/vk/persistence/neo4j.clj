@@ -121,14 +121,24 @@
            (rel/create conn (:node tim1) (:node tim2) (relationship tim1 tim2))))
   (cypher/tquery conn "match (e:Tim) return e.name, e.canonical_name"))
 
-(read-string "42")
+(defn aggregate-values [coll]
+  (reduce #(assoc %1 %2 (inc (%1 %2 0))) {} coll))
 
 (def soc1-data
   (->> "data/social_mbti.csv"
        slurp
        csv/read-csv
        rest
-       (take 10)
+       ;; (take 10)
        (map #(->> %
                   (map read-string)
-                  (zipmap [:vk_id :soc1_tim])))))
+                  (zipmap [:vk_id :soc1_tim])))
+       (map :soc1_tim)
+       aggregate-values
+       ;; count
+       ))
+
+
+(->> (map-hash #(vector (:canonical_name (find-by :soc1_tim_id %1 types)) %2) soc1-data)
+    (into [])
+    (sort-by second))
