@@ -6,6 +6,7 @@
             [lein-localrepo "0.5.3"]]
   :repositories {"apache-releases"
                  "http://repository.apache.org/content/repositories/releases/"}
+  :jvm-opts ^:replace []
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.jruby/jruby-complete "1.7.12"]
 
@@ -53,10 +54,12 @@
                  [fogus/bacwn "0.4.0"] ; datalog implementation
                  [org.encog/encog-core "3.2.0"]
                  [enclog "0.6.5"] ; machine-learning, neural networks
+                 [clocop "0.2.0"]
                  [clojure-opennlp "0.3.2"]
                  [neuroph-core/neuroph-core "2.8"]
                  [neuroph-imgrec/neuroph-imgrec "2.8"]
                  [neuroph-ocr/neuroph-ocr "2.8"]
+                 [uk.org.russet/tawny-owl "1.1.0"]
 
                  ; data transformation
                  ;
@@ -67,7 +70,7 @@
                  ; display
                  ;
                  [overtone "0.9.1"]
-                 [quil "1.7.0"]
+                 [quil "2.1.0"]
                  [shadertone "0.2.3"]
                  [seesaw "1.4.4"] ; UI
                  [tikkba "0.5.0"] ; dynamic svg using analemma

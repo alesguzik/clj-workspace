@@ -118,7 +118,7 @@
   (cypher/tquery conn "match (e:Tim) optional match (e)-[r]->() delete e,r")
   (doseq [node (map :node types-with-nodes)] (label/add conn node :Tim))
   (count (for [tim1 types-with-nodes tim2 types-with-nodes]
-           (rel/create conn (:node tim1) (:node tim2) (relationship tim1 tim2))))
+           (rel/create conn (:node tim1) (:node tim2) :Intertim {:name (relationship tim1 tim2)})))
   (cypher/tquery conn "match (e:Tim) return e.name, e.canonical_name"))
 
 (defn aggregate-values [coll]
@@ -129,7 +129,7 @@
        slurp
        csv/read-csv
        rest
-       ;; (take 10)
+       (take 10)
        (map #(->> %
                   (map read-string)
                   (zipmap [:vk_id :soc1_tim])))
@@ -137,8 +137,3 @@
        aggregate-values
        ;; count
        ))
-
-
-(->> (map-hash #(vector (:canonical_name (find-by :soc1_tim_id %1 types)) %2) soc1-data)
-    (into [])
-    (sort-by second))
