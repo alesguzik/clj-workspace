@@ -1,4 +1,4 @@
-(ns workspace.vk.persistence.postgres
+(ns workspace.persistence.postgres
   (:require
    [korma.db :refer :all]
    [korma.core :refer :all]

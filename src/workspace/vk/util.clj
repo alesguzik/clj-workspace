@@ -1,4 +1,4 @@
-(ns workspace.vk.faunagoroda
+(ns workspace.vk.util
   (:require
    [workspace.vk.api :as api]
    [me.raynes.conch :as sh]
