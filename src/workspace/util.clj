@@ -28,3 +28,15 @@
   `(try ~body
         (catch clojure.lang.ExceptionInfo e
           (~f (.getData e)))))
+
+(defn rnd [min max]
+  (+ min
+     (rand-int (- max min))))
+
+(defn rand256 [] (rnd 0 255))
+
+(defn now-ms []
+  (System/currentTimeMillis))
+
+(defn now []
+  (java.util.Date.))

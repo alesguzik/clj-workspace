@@ -4,4 +4,13 @@
    [me.raynes.conch :as sh]
    ))
 
-(def me (api/make-api-call "users.get" {:user-id 3885655 :fields api/all-user-fields}))
+(defn get-user [user-id]
+  (api/make-api-call "users.get" {:user-id user-id :fields api/all-user-fields}))
+
+(defn get-groups [user-id]
+  (-> (api/make-api-call "groups.get" {:user-id user-id})
+      :response
+      :items))
+
+#_(def me (get-user 3885655))
+#_(get-groups 3885655)

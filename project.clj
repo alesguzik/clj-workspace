@@ -41,7 +41,7 @@
 
                  ; host system interaction
                  ;
-                 [me.raynes/conch "0.6.0"]
+                 [me.raynes/conch "0.7.0"]
                  [me.raynes/fs "1.4.4"]
 
                  ; analyze
