@@ -28,6 +28,8 @@
                  [enlive "1.1.5"]
                  [clearley "0.3.0"] ; very neat parser generator
                  [instaparse "1.3.2"]
+                 [com.cognitect/transit-clj "0.8.247"]
+                 [com.cognitect/transit-cljs "0.8.184"]
 
                  ; store
                  ;
