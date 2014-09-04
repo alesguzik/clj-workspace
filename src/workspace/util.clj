@@ -3,7 +3,9 @@
 (def ^:dynamic debug false)
 
 (defmacro p [& body]
-  `(println ~body))
+  `(let [result# ~body]
+     (println result#)
+     result#))
 
 (defn debug-print [& args]
   (if debug
@@ -17,6 +19,9 @@
 (defn find-by [k v coll] (find-first #(= (k %) v) coll))
 (defn map-hash [f a-map]
   (into {} (map (fn [[k v]] (f k v)) a-map)))
+
+(defn filter-hash [f a-map]
+  (into {} (filter (fn [[k v]] (f k v)) a-map)))
 
 (defn swap-kv [a-map]
   (map-hash #(vector %2 %) a-map))
