@@ -24,7 +24,7 @@
         minutes (.getMinutes date)
         hours (.getHours date)]
     (q/translate [center-x center-y])
-    (qu/draw-circle [(mod (* (u/now) 1/20) 256) 255 128] [0 0] diam)
+    (qu/draw-circle [(mod (* (u/now-ms) 1/20) 256) 255 128] [0 0] diam)
     (qu/draw-circle [42] [0 0] 42)
     (qu/draw-circle [0 255 255]   (-> seconds qu/time->angle (qu/polar->rect (* 3/6 diam))) 42)
     (qu/draw-circle [50 255 255]  (-> minutes qu/time->angle (qu/polar->rect (* 2/6 diam))) 50)
@@ -36,6 +36,3 @@
    :setup setup-clock
    :draw draw-clock
    :size [500 500]))
-
-[(u/now)
-(.getTime (java.util.Date.))]
