@@ -22,9 +22,7 @@
          (apply combo/cartesian-product values))))
 
 (defn complementary-axes-data [tim]
-  (->> tim
-       (map (fn [[k v]] [(axis-complements k) (not v)]))
-       (into {})))
+  (u/map-hash (fn [k v] [(axis-complements k) (not v)]) tim))
 
 (defn canonical-name [tim]
   (let [rat-part (if (:logic     tim) "Л" "Э")
@@ -34,6 +32,8 @@
                                    [irr-part rat-part]
                                    [rat-part irr-part])]
     (str first-part second-part vertion)))
+
+(def don (types first))
 
 (def additional-info
   {"ИЛЭ" {:name "Дон Кихот"      :soc1_tim_id 1  :sname "Дон"  :n :don   }

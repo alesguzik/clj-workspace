@@ -12,8 +12,7 @@
        rest
        (map #(->> %
                   (map read-string)
-                  (zipmap [:vk_id :soc1_tim_id])))
-       ))
+                  (zipmap [:vk_id :soc1_tim_id])))))
 
 (defn stats [data]
   (->> data
