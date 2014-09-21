@@ -38,7 +38,7 @@
                  [korma "0.3.1"]
                  [clojurewerkz/neocons "3.0.0-rc1"] ; neo4j main
                  ; [borneo "0.4.0"] ; neo4j alternative
-                 [clj-orient "0.5.0"] ; OrientDB
+                 ;; [clj-orient "0.7.0-SNAPSHOT"] ; OrientDB
                  [clojurewerkz/ogre "2.3.0.1"] ; nice blueprint queries
 
                  ; host system interaction
