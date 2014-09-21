@@ -8,6 +8,7 @@
   :repositories {"apache-releases"
                  "http://repository.apache.org/content/repositories/releases/"}
   :jvm-opts ^:replace []
+  :main workspace
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2342"]
                  [org.jruby/jruby-complete "1.7.12"]
