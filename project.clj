@@ -3,11 +3,13 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :plugins [[cider/cider-nrepl "0.8.0-SNAPSHOT"]
+            [com.cemerick/austin "0.1.5"]
             [lein-localrepo "0.5.3"]]
   :repositories {"apache-releases"
                  "http://repository.apache.org/content/repositories/releases/"}
   :jvm-opts ^:replace []
   :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2342"]
                  [org.jruby/jruby-complete "1.7.12"]
 
                  ; get
@@ -77,6 +79,10 @@
                  [seesaw "1.4.4"] ; UI
                  [tikkba "0.5.0"] ; dynamic svg using analemma
 
+                 ; web
+                 ;
+                 [ring "1.3.1"]
+                 ;; [lib-noir "0.8.9"]
                  ; documentation
                  ;
                  [clj-ns-browser "1.3.1"]
