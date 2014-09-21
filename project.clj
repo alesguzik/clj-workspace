@@ -2,7 +2,7 @@
   :description "My clojure workspace"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :plugins [[cider/cider-nrepl "0.7.0-SNAPSHOT"]
+  :plugins [[cider/cider-nrepl "0.8.0-SNAPSHOT"]
             [lein-localrepo "0.5.3"]]
   :repositories {"apache-releases"
                  "http://repository.apache.org/content/repositories/releases/"}
